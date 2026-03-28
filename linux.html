@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Linux</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>📚 Tuto IT</h2>
+  <a href="index.html">Accueil</a>
+  <a href="windows-server.html">Windows Server</a>
+  <a href="hyper-v.html">Hyper-V</a>
+  <a href="linux.html">Linux</a>
+  <a href="about.html">À propos</a>
+</div>
+
+<div class="main">
+  <div class="marquee">
+    <span class="date" id="date"></span>
+    <p>🚀 Nouveautés : Debian CLI • Linux • Windows Server</p>
+  </div>
+
+  <header>
+    <h1>Linux</h1>
+  </header>
+
+  <div class="container">
+    <h2>Tutoriels Linux</h2>
+    <ul id="linuxList"></ul>
+  </div>
+</div>
+
+<script>
+// DATE
+const dateElement = document.getElementById("date");
+const today = new Date();
+dateElement.textContent = "📅 " + today.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
+
+// Liste des tutoriels Linux
+const linuxList = document.getElementById("linuxList");
+tutorials.filter(t => t.category === "Linux").forEach(t => {
+  const li = document.createElement("li");
+  li.innerHTML = `<a href="${t.link}">${t.title}</a>`;
+  linuxList.appendChild(li);
+});
+</script>
+
+</body>
+</html>
