@@ -2,171 +2,32 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tutoriels Systèmes & Virtualisation</title>
+  <title>Installation Windows Serveur</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0f172a;
-      color: #e2e8f0;
-    }
-
-    header {
-      background: linear-gradient(90deg, #1e3a8a, #2563eb);
-      padding: 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-
-    nav {
+    .nav-buttons {
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      background-color: #020617;
-      padding: 10px;
+      justify-content: space-between;
+      margin: 20px 0;
     }
-
-    nav a {
-      color: #e2e8f0;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #38bdf8;
-    }
-
-    .container {
-      padding: 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background-color: #1e293b;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #38bdf8;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #020617;
-      margin-top: 40px;
-      font-size: 0.9rem;
-    }
-  .marquee {
-      position: relative;
+    .nav-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
       background-color: #2563eb;
       color: white;
-      overflow: hidden;
-      white-space: nowrap;
-      box-sizing: border-box;
-      padding-left: 160px;
+      cursor: pointer;
     }
-
-    .date {
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-weight: bold;
+    .nav-buttons button:hover {
+      background-color: #1e40af;
     }
-
-    .marquee p {
-      display: inline-block;
-      padding-left: 100%;
-      animation: defilement 15s linear infinite;
-      margin: 0;
-      padding: 10px 0;
-    }
-
-    @keyframes defilement {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-
-    </style>
+  </style>
 </head>
-<body>
-
-<div class="marquee">
-  <span class="date" id="date"></span>
-  <p>🚀 Nouveautés sur tuto-it : Installation Windows Serveur • Configuration Debian • Hyper-V avancé</p>
-</div>
-
-<header>
-  <h1>📚 Tutoriels Systèmes & Virtualisation</h1>
-  <p>Windows Server • Windows 10 • Debian • Hyper-V</p>
-</header>
-
-<nav>
-  <a href="#">Accueil</a>
-  <a href="#windows-server">Windows Server</a>
-  <a href="#windows10">Windows 10</a>
-  <a href="#debian">Debian</a>
-  <a href="#hyperv">Hyper-V</a>
-</nav>
-
-<div class="container">
-  <h2>Bienvenue 👋</h2>
-  <p>Retrouvez ici des tutoriels simples et pratiques pour administrer vos systèmes et maîtriser la virtualisation.</p>
-
-  <div class="grid">
-
-    <div class="card" id="windows-server">
-      <h3>🖥️ Windows Server</h3>
-      <p>Installation, Active Directory, DNS, DHCP et plus encore.</p>
-    </div>
-
-    <div class="card" id="windows10">
-      <h3>💻 Windows 10</h3>
-      <p>Optimisation, dépannage et configuration avancée.</p>
-    </div>
-
-    <div class="card" id="debian">
-      <h3>🐧 Debian</h3>
-      <p>Commandes Linux, serveurs web, SSH, et administration système.</p>
-    </div>
-
-    <div class="card" id="hyperv">
-      <h3>⚙️ Hyper-V</h3>
-      <p>Création de machines virtuelles, réseaux virtuels et gestion avancée.</p>
-    </div>
-
-  </div>
-</div>
 <body>
 
 <!-- MENU LATÉRAL -->
 <div class="sidebar">
   <h2>📚 Tuto IT</h2>
-
-  <input type="text" class="search" placeholder="Rechercher..." onkeyup="searchTutorials(this.value)">
-
   <a href="index.html">Accueil</a>
   <a href="windows-server.html">Windows Server</a>
 </div>
@@ -180,18 +41,96 @@
   </div>
 
   <header>
-    <h1>Accueil</h1>
+    <h1>Installation de Windows Serveur</h1>
   </header>
-<footer>
-  <p>© 2026 - Mon site de tutoriels IT</p>
-</footer>
+
+  <div class="container">
+
+    <h2>Guide étape par étape</h2>
+
+    <nav>
+      <strong>Étapes :</strong>
+      <ul id="articleNav">
+        <li><a href="#step1">1. Télécharger l’ISO</a></li>
+        <li><a href="#step2">2. Créer une clé USB bootable</a></li>
+        <li><a href="#step3">3. Démarrer sur la clé USB</a></li>
+        <li><a href="#step4">4. Choisir la version</a></li>
+        <li><a href="#step5">5. Installer Windows Server</a></li>
+        <li><a href="#step6">6. Configurer le mot de passe administrateur</a></li>
+      </ul>
+    </nav>
+
+    <!-- ARTICLES -->
+    <article id="step1">
+      <h3>1️⃣ Télécharger l’ISO de Windows Server</h3>
+      <p>Rendez-vous sur le site officiel de Microsoft pour télécharger l’ISO correspondant à la version de Windows Server souhaitée.</p>
+    </article>
+
+    <article id="step2">
+      <h3>2️⃣ Créer une clé USB bootable</h3>
+      <p>Utilisez un outil comme Rufus pour créer une clé USB bootable avec l’ISO que vous avez téléchargé.</p>
+    </article>
+
+    <article id="step3">
+      <h3>3️⃣ Démarrer sur la clé USB</h3>
+      <p>Insérez la clé USB dans le serveur et configurez le BIOS/UEFI pour démarrer depuis celle-ci.</p>
+    </article>
+
+    <article id="step4">
+      <h3>4️⃣ Choisir la version de Windows Server</h3>
+      <p>Sélectionnez la version qui correspond à vos besoins (Standard, Datacenter, etc.).</p>
+    </article>
+
+    <article id="step5">
+      <h3>5️⃣ Installer Windows Server</h3>
+      <p>Suivez l’assistant d’installation en choisissant les options par défaut ou personnalisées selon votre environnement.</p>
+    </article>
+
+    <article id="step6">
+      <h3>6️⃣ Configurer le mot de passe administrateur</h3>
+      <p>Définissez un mot de passe sécurisé pour le compte Administrateur et terminez la configuration initiale.</p>
+    </article>
+
+    <!-- BOUTONS DE NAVIGATION -->
+    <div class="nav-buttons">
+      <button id="prevBtn">⬅ Étape précédente</button>
+      <button id="nextBtn">Étape suivante ➡</button>
+    </div>
+
+  </div>
+
+</div>
 
 <script>
-  const dateElement = document.getElementById("date");
-  const options = { day: 'numeric', month: 'long', year: 'numeric' };
-  const today = new Date();
-  const formattedDate = today.toLocaleDateString('fr-FR', options);
-  dateElement.textContent = "📅 " + formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+// DATE AUTOMATIQUE
+const dateElement = document.getElementById("date");
+const options = { day: 'numeric', month: 'long', year: 'numeric' };
+const today = new Date();
+const formattedDate = today.toLocaleDateString('fr-FR', options);
+dateElement.textContent = "📅 " + formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+
+// NAVIGATION ENTRE ARTICLES
+const steps = ["step1", "step2", "step3", "step4", "step5", "step6"];
+let currentStep = 0;
+
+function showStep(index) {
+  steps.forEach((id, i) => {
+    document.getElementById(id).style.display = i === index ? "block" : "none";
+  });
+  currentStep = index;
+}
+
+document.getElementById("prevBtn").addEventListener("click", () => {
+  if(currentStep > 0) showStep(currentStep - 1);
+});
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+  if(currentStep < steps.length - 1) showStep(currentStep + 1);
+});
+
+// INITIALISATION
+showStep(0);
 </script>
+
 </body>
 </html>
