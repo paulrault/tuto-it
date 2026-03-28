@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos - Tuto IT</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .profile {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .skill {
+      background: #020617;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+    }
+
+    .contact {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>📚 Tuto IT</h2>
+  <a href="index.html">Accueil</a>
+  <a href="windows-server.html">Windows Server</a>
+  <a href="hyper-v.html">Hyper-V</a>
+  <a href="about.html">À propos</a>
+</div>
+
+<div class="main">
+
+  <div class="marquee">
+    <span class="date" id="date"></span>
+    <p>🚀 Nouveautés : AD DS • Hyper-V • Windows Server</p>
+  </div>
+
+  <header>
+    <h1>👨‍💻 À propos</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- PROFIL -->
+    <div class="profile">
+      <h2>Présentation</h2>
+      <p>
+        Bonjour, je m'appelle <strong>Paul</strong>. Je suis passionné par l'informatique et plus particulièrement par
+        l'administration système et la virtualisation.
+      </p>
+      <p>
+        Ce site a pour objectif de partager mes connaissances à travers des tutoriels pratiques sur
+        Windows Server, Hyper-V et Linux.
+      </p>
+    </div>
+
+    <!-- COMPÉTENCES -->
+    <h2>💡 Compétences</h2>
+    <div class="skills">
+
+      <div class="skill">
+        <h3>🖥️ Windows Server</h3>
+        <p>Active Directory, AD DS, gestion des rôles</p>
+      </div>
+
+      <div class="skill">
+        <h3>⚙️ Virtualisation</h3>
+        <p>Hyper-V, machines virtuelles</p>
+      </div>
+
+      <div class="skill">
+        <h3>🐧 Linux</h3>
+        <p>Debian, commandes, serveurs</p>
+      </div>
+
+      <div class="skill">
+        <h3>🌐 Réseau</h3>
+        <p>DNS, DHCP, bases réseau</p>
+      </div>
+
+    </div>
+
+    <!-- PROJETS -->
+    <h2>📂 Projets</h2>
+    <div class="profile">
+      <ul>
+        <li>Création d’un site de tutoriels IT (ce site)</li>
+        <li>Installation et configuration d’un serveur Active Directory</li>
+        <li>Création d’environnements virtualisés avec Hyper-V</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact">
+      <h2>📧 Contact</h2>
+      <p>Email : ton-email@example.com</p>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+// DATE
+const dateElement = document.getElementById("date");
+const today = new Date();
+const formattedDate = today.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
+dateElement.textContent = "📅 " + formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+</script>
+
+</body>
+</html>
