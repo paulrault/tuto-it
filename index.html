@@ -3,39 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Tuto IT</title>
+  <title>Tuto IT - Dashboard</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .dashboard {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #38bdf8;
-    }
-
-    .card a {
-      display: inline-block;
-      margin-top: 10px;
-      color: #38bdf8;
-      text-decoration: none;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-  </style>
 </head>
 <body>
 
@@ -44,67 +13,32 @@
   <a href="index.html">Accueil</a>
   <a href="windows-server.html">Windows Server</a>
   <a href="hyper-v.html">Hyper-V</a>
+  <a href="linux.html">Linux</a>
   <a href="about.html">À propos</a>
 </div>
 
 <div class="main">
-
   <div class="marquee">
     <span class="date" id="date"></span>
-    <p>🚀 Nouveautés : Hyper-V • Windows Server • Debian</p>
+    <p>🚀 Nouveautés : AD DS • Debian CLI • Hyper-V • Windows Server</p>
   </div>
 
   <header>
-    <h1>Dashboard</h1>
+    <h1>Dashboard des tutoriels</h1>
   </header>
 
-  <div class="container">
-
-    <h2>👋 Bienvenue</h2>
-    <p>Accédez rapidement à vos tutoriels et catégories.</p>
-
-    <div class="dashboard">
-
-      <div class="card">
-        <h3>🖥️ Windows Server</h3>
-        <p>Administration et configuration.</p>
-        <a href="windows-server.html">Voir →</a>
-      </div>
-
-      <div class="card">
-        <h3>⚙️ Hyper-V</h3>
-        <p>Virtualisation et VM.</p>
-        <a href="hyper-v.html">Voir →</a>
-      </div>
-
-      <div class="card">
-        <h3>🔥 Derniers tutoriels</h3>
-        <ul id="latestTutorials"></ul>
-      </div>
-
-      <div class="card">
-        <h3>⭐ Tutoriels populaires</h3>
-        <ul id="popularTutorials"></ul>
-      </div>
-
-      <div class="card">
-        <h3>📊 Statistiques</h3>
-        <p id="stats"></p>
-      </div>
-
-    </div>
-
+  <div class="container dashboard" id="dashboardList">
+    <!-- Les cartes des tutoriels seront générées automatiquement ici -->
   </div>
-
 </div>
 
 <script>
-// DATE
+// DATE AUTOMATIQUE
 const dateElement = document.getElementById("date");
 const today = new Date();
-const formattedDate = today.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
-dateElement.textContent = "📅 " + formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
-// Base de données globale des tutoriels
+dateElement.textContent = "📅 " + today.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
+
+// BASE DE DONNÉES DES TUTORIELS
 const tutorials = [
   { title: "Installation Windows Serveur", link: "installation-windows-server.html", category: "Windows", views: 10 },
   { title: "Installation du rôle AD DS", link: "installation-ad-ds.html", category: "Windows", views: 5 },
@@ -112,30 +46,16 @@ const tutorials = [
   { title: "Installation Debian CLI", link: "installation-debian-cli.html", category: "Linux", views: 0 }
 ];
 
-
-// DERNIERS TUTORIELS
-const latestList = document.getElementById("latestTutorials");
-tutorials.slice().reverse().forEach(tuto => {
-  const li = document.createElement("li");
-  li.innerHTML = `<a href="${tuto.link}">${tuto.title}</a>`;
-  latestList.appendChild(li);
+// GENERATION AUTOMATIQUE DES CARTES
+const dashboard = document.getElementById("dashboardList");
+tutorials.forEach(t => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `<h3>${t.title}</h3>
+                    <p class="muted">${t.category}</p>
+                    <a href="${t.link}">Voir le tutoriel ➡</a>`;
+  dashboard.appendChild(card);
 });
-
-// TUTORIELS POPULAIRES
-const popularList = document.getElementById("popularTutorials");
-tutorials
-  .slice()
-  .sort((a,b)=>b.views-a.views)
-  .forEach(tuto => {
-    const li = document.createElement("li");
-    li.innerHTML = `<a href="${tuto.link}">${tuto.title}</a>`;
-    popularList.appendChild(li);
-  });
-
-// STATISTIQUES
-const stats = document.getElementById("stats");
-const categories = [...new Set(tutorials.map(t => t.category))];
-stats.innerHTML = `Nombre de tutoriels : ${tutorials.length}<br>Catégories : ${categories.length}`;
 </script>
 
 </body>
