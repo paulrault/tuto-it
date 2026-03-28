@@ -2,41 +2,14 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Installation Windows Server</title>
+  <title>Installation Windows Serveur</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-<header>
-  <h1>Installation de Windows Serveur</h1>
-</header>
-
-<nav>
-  <a href="index.html">Accueil</a>
-  <a href="windows-server.html">Retour</a>
-</nav>
-
-<div class="container">
-  <h2>Guide complet</h2>
-
-  <ol>
-    <li>Télécharger l’ISO de Windows Server</li>
-    <li>Créer une clé USB bootable</li>
-    <li>Démarrer sur la clé USB</li>
-    <li>Choisir la version</li>
-    <li>Installer Windows Server</li>
-    <li>Configurer le mot de passe administrateur</li>
-  </ol>
-
-</div>
 <body>
 
 <!-- MENU LATÉRAL -->
 <div class="sidebar">
   <h2>📚 Tuto IT</h2>
-
-  <input type="text" class="search" placeholder="Rechercher..." onkeyup="searchTutorials(this.value)">
-
   <a href="index.html">Accueil</a>
   <a href="windows-server.html">Windows Server</a>
 </div>
@@ -50,17 +23,79 @@
   </div>
 
   <header>
-    <h1>Accueil</h1>
+    <h1>Installation de Windows Serveur</h1>
   </header>
 
   <div class="container">
-    <h2>Bienvenue 👋</h2>
 
-    <ul id="tutoList">
-      <li><a href="installation-windows-server.html">Installation Windows Serveur</a></li>
-    </ul>
+    <h2>Guide étape par étape</h2>
+
+    <nav>
+      <strong>Étapes :</strong>
+      <ul id="articleNav">
+        <li><a href="#step1">1. Télécharger l’ISO</a></li>
+        <li><a href="#step2">2. Créer une clé USB bootable</a></li>
+        <li><a href="#step3">3. Démarrer sur la clé USB</a></li>
+        <li><a href="#step4">4. Choisir la version</a></li>
+        <li><a href="#step5">5. Installer Windows Server</a></li>
+        <li><a href="#step6">6. Configurer le mot de passe administrateur</a></li>
+      </ul>
+    </nav>
+
+    <!-- ARTICLE 1 -->
+    <article id="step1">
+      <h3>1️⃣ Télécharger l’ISO de Windows Server</h3>
+      <p>Rendez-vous sur le site officiel Microsoft pour télécharger l’ISO.</p>
+      <img src="images/iso-download.png" alt="Téléchargement ISO" width="600">
+    </article>
+
+    <!-- ARTICLE 2 -->
+    <article id="step2">
+      <h3>2️⃣ Créer une clé USB bootable</h3>
+      <p>Utilisez l’outil Rufus pour créer votre clé USB bootable.</p>
+      <img src="images/usb-bootable.png" alt="Créer clé USB bootable" width="600">
+    </article>
+
+    <!-- ARTICLE 3 -->
+    <article id="step3">
+      <h3>3️⃣ Démarrer sur la clé USB</h3>
+      <p>Insérez la clé dans le serveur et redémarrez en choisissant le boot USB.</p>
+      <img src="images/boot-usb.png" alt="Démarrage sur USB" width="600">
+    </article>
+
+    <!-- ARTICLE 4 -->
+    <article id="step4">
+      <h3>4️⃣ Choisir la version de Windows Server</h3>
+      <p>Sélectionnez la version correspondant à vos besoins (Standard, Datacenter...).</p>
+      <img src="images/version-select.png" alt="Sélection version" width="600">
+    </article>
+
+    <!-- ARTICLE 5 -->
+    <article id="step5">
+      <h3>5️⃣ Installer Windows Server</h3>
+      <p>Suivez l’assistant d’installation en choisissant les options par défaut ou personnalisées.</p>
+      <img src="images/install-progress.png" alt="Installation Windows Server" width="600">
+    </article>
+
+    <!-- ARTICLE 6 -->
+    <article id="step6">
+      <h3>6️⃣ Configurer le mot de passe administrateur</h3>
+      <p>Définissez un mot de passe sécurisé pour le compte Administrateur.</p>
+      <img src="images/admin-password.png" alt="Mot de passe Administrateur" width="600">
+    </article>
+
   </div>
 
 </div>
+
+<script>
+// DATE AUTOMATIQUE
+const dateElement = document.getElementById("date");
+const options = { day: 'numeric', month: 'long', year: 'numeric' };
+const today = new Date();
+const formattedDate = today.toLocaleDateString('fr-FR', options);
+dateElement.textContent = "📅 " + formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+</script>
+
 </body>
 </html>
