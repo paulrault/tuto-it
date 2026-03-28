@@ -3,6 +3,45 @@ body {
   font-family: Arial;
   background-color: #0f172a;
   color: white;
+}
+
+header {
+  background: #2563eb;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background: #020617;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.container {
+  padding: 30px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+}
+
+a {
+  color: #38bdf8;
+}
+body {
+  margin: 0;
+  font-family: Arial;
+  background-color: #0f172a;
+  color: white;
   display: flex;
 }
 
