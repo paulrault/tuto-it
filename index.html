@@ -21,6 +21,21 @@
     .nav-buttons button:hover {
       background-color: #1e40af;
     }
+
+    /* BARRE DE PROGRESSION */
+    .progress-container {
+      background-color: #1e293b;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 20px 0;
+      height: 20px;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background-color: #38bdf8;
+      transition: width 0.3s;
+    }
   </style>
 </head>
 <body>
@@ -91,6 +106,11 @@
       <p>Définissez un mot de passe sécurisé pour le compte Administrateur et terminez la configuration initiale.</p>
     </article>
 
+    <!-- BARRE DE PROGRESSION -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
     <!-- BOUTONS DE NAVIGATION -->
     <div class="nav-buttons">
       <button id="prevBtn">⬅ Étape précédente</button>
@@ -118,6 +138,12 @@ function showStep(index) {
     document.getElementById(id).style.display = i === index ? "block" : "none";
   });
   currentStep = index;
+  updateProgressBar();
+}
+
+function updateProgressBar() {
+  const progress = ((currentStep + 1) / steps.length) * 100;
+  document.getElementById("progressBar").style.width = progress + "%";
 }
 
 document.getElementById("prevBtn").addEventListener("click", () => {
