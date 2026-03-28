@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Utilisation de Hyper-V</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+    .nav-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #2563eb;
+      color: white;
+      cursor: pointer;
+    }
+
+    .progress-container {
+      background-color: #1e293b;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 20px 0;
+      height: 20px;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      transition: width 0.5s ease, background-color 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>📚 Tuto IT</h2>
+  <a href="index.html">Accueil</a>
+  <a href="windows-server.html">Windows Server</a>
+  <a href="hyper-v.html">Hyper-V</a>
+</div>
+
+<div class="main">
+
+  <div class="marquee">
+    <span class="date" id="date"></span>
+    <p>🚀 Nouveautés : Hyper-V • Windows Server • Debian</p>
+  </div>
+
+  <header>
+    <h1>Utilisation de Hyper-V</h1>
+  </header>
+
+  <div class="container">
+
+    <h2>Guide étape par étape</h2>
+
+    <article id="step1">
+      <h3>1️⃣ Activer Hyper-V</h3>
+      <p>Activez Hyper-V dans les fonctionnalités Windows ou via PowerShell.</p>
+    </article>
+
+    <article id="step2">
+      <h3>2️⃣ Créer une machine virtuelle</h3>
+      <p>Ouvrez Hyper-V Manager et créez une nouvelle machine virtuelle.</p>
+    </article>
+
+    <article id="step3">
+      <h3>3️⃣ Configurer les ressources</h3>
+      <p>Attribuez la RAM, le CPU et le disque dur à votre VM.</p>
+    </article>
+
+    <article id="step4">
+      <h3>4️⃣ Installer un système d’exploitation</h3>
+      <p>Montez une image ISO et lancez l’installation.</p>
+    </article>
+
+    <article id="step5">
+      <h3>5️⃣ Configurer le réseau</h3>
+      <p>Créez un switch virtuel pour connecter votre VM au réseau.</p>
+    </article>
+
+    <article id="step6">
+      <h3>6️⃣ Gérer la machine virtuelle</h3>
+      <p>Démarrer, arrêter, sauvegarder et cloner vos machines virtuelles.</p>
+    </article>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="nav-buttons">
+      <button id="prevBtn">⬅ Étape précédente</button>
+      <button id="nextBtn">Étape suivante ➡</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+// DATE
+const dateElement = document.getElementById("date");
+const today = new Date();
+const formattedDate = today.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
+dateElement.textContent = "📅 " + formattedDate;
+
+// NAVIGATION
+const steps = ["step1","step2","step3","step4","step5","step6"];
+const colors = ["#38bdf8","#22c55e","#facc15","#f87171","#a78bfa","#fb7185"];
+let currentStep = 0;
+
+function showStep(index){
+  steps.forEach((id,i)=>{
+    document.getElementById(id).style.display = i===index?"block":"none";
+  });
+  currentStep=index;
+  updateBar();
+}
+
+function updateBar(){
+  const bar=document.getElementById("progressBar");
+  bar.style.width=((currentStep+1)/steps.length)*100+"%";
+  bar.style.backgroundColor=colors[currentStep];
+}
+
+document.getElementById("prevBtn").onclick=()=>{ if(currentStep>0) showStep(currentStep-1); }
+document.getElementById("nextBtn").onclick=()=>{ if(currentStep<steps.length-1) showStep(currentStep+1); }
+
+showStep(0);
+</script>
+
+</body>
+</html>
