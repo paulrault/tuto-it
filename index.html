@@ -2,51 +2,45 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Installation Windows Serveur</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Tuto IT</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin: 20px 0;
-    }
-    .nav-buttons button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      background-color: #2563eb;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .nav-buttons button:hover {
-      background-color: #1e40af;
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
     }
 
-    /* BARRE DE PROGRESSION */
-    .progress-container {
-      background-color: #1e293b;
-      border-radius: 10px;
-      overflow: hidden;
-      margin: 20px 0;
-      height: 20px;
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
-    .progress-bar {
-      height: 100%;
-      width: 0;
-      background-color: #38bdf8;
-      transition: width 0.5s ease, background-color 0.5s ease;
+
+    .card h3 {
+      margin-top: 0;
+      color: #38bdf8;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #38bdf8;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 
-<!-- MENU LATÉRAL -->
+<!-- SIDEBAR -->
 <div class="sidebar">
   <h2>📚 Tuto IT</h2>
   <a href="index.html">Accueil</a>
   <a href="windows-server.html">Windows Server</a>
-  <a href="hyper-v.html">Utilisation de Hyper-V</a>
+  <a href="hyper-v.html">Hyper-V</a>
 </div>
 
 <div class="main">
@@ -54,69 +48,43 @@
   <!-- BARRE NOUVEAUTÉS -->
   <div class="marquee">
     <span class="date" id="date"></span>
-    <p>🚀 Nouveautés : Installation Windows Serveur • Debian • Hyper-V</p>
+    <p>🚀 Nouveautés : Hyper-V • Windows Server • Debian</p>
   </div>
 
   <header>
-    <h1>Installation de Windows Serveur</h1>
+    <h1>Dashboard</h1>
   </header>
 
   <div class="container">
 
-    <h2>Guide étape par étape</h2>
+    <h2>👋 Bienvenue</h2>
+    <p>Accédez rapidement à vos tutoriels et catégories.</p>
 
-    <nav>
-      <strong>Étapes :</strong>
-      <ul id="articleNav">
-        <li><a href="#step1">1. Télécharger l’ISO</a></li>
-        <li><a href="#step2">2. Créer une clé USB bootable</a></li>
-        <li><a href="#step3">3. Démarrer sur la clé USB</a></li>
-        <li><a href="#step4">4. Choisir la version</a></li>
-        <li><a href="#step5">5. Installer Windows Server</a></li>
-        <li><a href="#step6">6. Configurer le mot de passe administrateur</a></li>
-      </ul>
-    </nav>
+    <div class="dashboard">
 
-    <!-- ARTICLES -->
-    <article id="step1">
-      <h3>1️⃣ Télécharger l’ISO de Windows Server</h3>
-      <p>Rendez-vous sur le site officiel de Microsoft pour télécharger l’ISO correspondant à la version de Windows Server souhaitée.</p>
-    </article>
+      <div class="card">
+        <h3>🖥️ Windows Server</h3>
+        <p>Administration, installation et configuration.</p>
+        <a href="windows-server.html">Voir les tutoriels →</a>
+      </div>
 
-    <article id="step2">
-      <h3>2️⃣ Créer une clé USB bootable</h3>
-      <p>Utilisez un outil comme Rufus pour créer une clé USB bootable avec l’ISO que vous avez téléchargé.</p>
-    </article>
+      <div class="card">
+        <h3>⚙️ Hyper-V</h3>
+        <p>Virtualisation et gestion des machines virtuelles.</p>
+        <a href="hyper-v.html">Voir le guide →</a>
+      </div>
 
-    <article id="step3">
-      <h3>3️⃣ Démarrer sur la clé USB</h3>
-      <p>Insérez la clé USB dans le serveur et configurez le BIOS/UEFI pour démarrer depuis celle-ci.</p>
-    </article>
+      <div class="card">
+        <h3>🔥 Dernier tutoriel</h3>
+        <p>Installation de Windows Server.</p>
+        <a href="installation-windows-server.html">Lire →</a>
+      </div>
 
-    <article id="step4">
-      <h3>4️⃣ Choisir la version de Windows Server</h3>
-      <p>Sélectionnez la version qui correspond à vos besoins (Standard, Datacenter, etc.).</p>
-    </article>
+      <div class="card">
+        <h3>📊 Statistiques</h3>
+        <p>Nombre de tutoriels : 2<br>Catégories : 2</p>
+      </div>
 
-    <article id="step5">
-      <h3>5️⃣ Installer Windows Server</h3>
-      <p>Suivez l’assistant d’installation en choisissant les options par défaut ou personnalisées selon votre environnement.</p>
-    </article>
-
-    <article id="step6">
-      <h3>6️⃣ Configurer le mot de passe administrateur</h3>
-      <p>Définissez un mot de passe sécurisé pour le compte Administrateur et terminez la configuration initiale.</p>
-    </article>
-
-    <!-- BARRE DE PROGRESSION -->
-    <div class="progress-container">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
-
-    <!-- BOUTONS DE NAVIGATION -->
-    <div class="nav-buttons">
-      <button id="prevBtn">⬅ Étape précédente</button>
-      <button id="nextBtn">Étape suivante ➡</button>
     </div>
 
   </div>
@@ -126,41 +94,9 @@
 <script>
 // DATE AUTOMATIQUE
 const dateElement = document.getElementById("date");
-const options = { day: 'numeric', month: 'long', year: 'numeric' };
 const today = new Date();
-const formattedDate = today.toLocaleDateString('fr-FR', options);
+const formattedDate = today.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
 dateElement.textContent = "📅 " + formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
-
-// NAVIGATION ENTRE ARTICLES AVEC BARRE DE PROGRESSION COLORÉE
-const steps = ["step1", "step2", "step3", "step4", "step5", "step6"];
-const colors = ["#38bdf8", "#22c55e", "#facc15", "#f87171", "#a78bfa", "#fb7185"];
-let currentStep = 0;
-
-function showStep(index) {
-  steps.forEach((id, i) => {
-    document.getElementById(id).style.display = i === index ? "block" : "none";
-  });
-  currentStep = index;
-  updateProgressBar();
-}
-
-function updateProgressBar() {
-  const progress = ((currentStep + 1) / steps.length) * 100;
-  const progressBar = document.getElementById("progressBar");
-  progressBar.style.width = progress + "%";
-  progressBar.style.backgroundColor = colors[currentStep];
-}
-
-document.getElementById("prevBtn").addEventListener("click", () => {
-  if(currentStep > 0) showStep(currentStep - 1);
-});
-
-document.getElementById("nextBtn").addEventListener("click", () => {
-  if(currentStep < steps.length - 1) showStep(currentStep + 1);
-});
-
-// INITIALISATION
-showStep(0);
 </script>
 
 </body>
