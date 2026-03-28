@@ -79,11 +79,21 @@
       font-size: 0.9rem;
     }
   .marquee {
+      position: relative;
       background-color: #2563eb;
       color: white;
       overflow: hidden;
       white-space: nowrap;
       box-sizing: border-box;
+      padding-left: 160px;
+    }
+
+    .date {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
     }
 
     .marquee p {
@@ -104,6 +114,7 @@
 <body>
 
 <div class="marquee">
+  <span class="date" id="date"></span>
   <p>🚀 Nouveautés sur tuto-it : Installation Windows Serveur • Configuration Debian • Hyper-V avancé</p>
 </div>
 
@@ -153,5 +164,12 @@
   <p>© 2026 - Mon site de tutoriels IT</p>
 </footer>
 
+<script>
+  const dateElement = document.getElementById("date");
+  const options = { day: 'numeric', month: 'long', year: 'numeric' };
+  const today = new Date();
+  const formattedDate = today.toLocaleDateString('fr-FR', options);
+  dateElement.textContent = "📅 " + formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+</script>
 </body>
 </html>
