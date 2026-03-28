@@ -31,11 +31,14 @@
       color: #38bdf8;
       text-decoration: none;
     }
+
+    ul {
+      padding-left: 20px;
+    }
   </style>
 </head>
 <body>
 
-<!-- SIDEBAR -->
 <div class="sidebar">
   <h2>📚 Tuto IT</h2>
   <a href="index.html">Accueil</a>
@@ -45,7 +48,6 @@
 
 <div class="main">
 
-  <!-- BARRE NOUVEAUTÉS -->
   <div class="marquee">
     <span class="date" id="date"></span>
     <p>🚀 Nouveautés : Hyper-V • Windows Server • Debian</p>
@@ -64,25 +66,29 @@
 
       <div class="card">
         <h3>🖥️ Windows Server</h3>
-        <p>Administration, installation et configuration.</p>
-        <a href="windows-server.html">Voir les tutoriels →</a>
+        <p>Administration et configuration.</p>
+        <a href="windows-server.html">Voir →</a>
       </div>
 
       <div class="card">
         <h3>⚙️ Hyper-V</h3>
-        <p>Virtualisation et gestion des machines virtuelles.</p>
-        <a href="hyper-v.html">Voir le guide →</a>
+        <p>Virtualisation et VM.</p>
+        <a href="hyper-v.html">Voir →</a>
       </div>
 
       <div class="card">
-        <h3>🔥 Dernier tutoriel</h3>
-        <p>Installation de Windows Server.</p>
-        <a href="installation-windows-server.html">Lire →</a>
+        <h3>🔥 Derniers tutoriels</h3>
+        <ul id="latestTutorials"></ul>
+      </div>
+
+      <div class="card">
+        <h3>⭐ Tutoriels populaires</h3>
+        <ul id="popularTutorials"></ul>
       </div>
 
       <div class="card">
         <h3>📊 Statistiques</h3>
-        <p>Nombre de tutoriels : 2<br>Catégories : 2</p>
+        <p id="stats"></p>
       </div>
 
     </div>
@@ -92,11 +98,41 @@
 </div>
 
 <script>
-// DATE AUTOMATIQUE
+// DATE
 const dateElement = document.getElementById("date");
 const today = new Date();
 const formattedDate = today.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
 dateElement.textContent = "📅 " + formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+
+// BASE DE DONNÉES SIMULÉE DES TUTORIELS
+const tutorials = [
+  { title: "Installation Windows Serveur", link: "installation-windows-server.html", category: "Windows", views: 120 },
+  { title: "Utilisation Hyper-V", link: "hyper-v.html", category: "Virtualisation", views: 95 }
+];
+
+// DERNIERS TUTORIELS
+const latestList = document.getElementById("latestTutorials");
+tutorials.slice().reverse().forEach(tuto => {
+  const li = document.createElement("li");
+  li.innerHTML = `<a href="${tuto.link}">${tuto.title}</a>`;
+  latestList.appendChild(li);
+});
+
+// TUTORIELS POPULAIRES
+const popularList = document.getElementById("popularTutorials");
+tutorials
+  .slice()
+  .sort((a,b)=>b.views-a.views)
+  .forEach(tuto => {
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="${tuto.link}">${tuto.title}</a>`;
+    popularList.appendChild(li);
+  });
+
+// STATISTIQUES
+const stats = document.getElementById("stats");
+const categories = [...new Set(tutorials.map(t => t.category))];
+stats.innerHTML = `Nombre de tutoriels : ${tutorials.length}<br>Catégories : ${categories.length}`;
 </script>
 
 </body>
