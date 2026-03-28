@@ -105,13 +105,26 @@ const today = new Date();
 const formattedDate = today.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
 dateElement.textContent = "📅 " + formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
 
-// BASE DE DONNÉES SIMULÉE DES TUTORIELS
+<script>
+// Base de données globale des tutoriels
 const tutorials = [
-  { title: "Installation Windows Serveur", link: "installation-windows-server.html", category: "Windows", views: 120 },
-  { title: "Utilisation Hyper-V", link: "hyper-v.html", category: "Virtualisation", views: 95 },
-  { title: "Installation du rôle AD DS", link: "installation-ad-ds.html", category: "Windows", views: 10 },
-  { title: "Installation Debian CLI", link: "installation-debian-cli.html", category: "Linux", views: 0 }
+  { title: "Installation Windows Serveur", link: "installation-windows-server.html", category: "Windows", views: 10 },
+  { title: "Installation du rôle AD DS", link: "installation-ad-ds.html", category: "Windows", views: 5 },
+  { title: "Utilisation Hyper-V", link: "hyper-v.html", category: "Virtualisation", views: 3 },
+  { title: "Installation Debian CLI", link: "installation-debian-cli.html", category: "Linux", views: 0 } // nouveau
 ];
+
+// Affichage dans le dashboard
+const dashboard = document.getElementById("dashboardList");
+tutorials.forEach(t => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `<h3>${t.title}</h3>
+                    <p class="muted">${t.category}</p>
+                    <a href="${t.link}">Voir le tutoriel ➡</a>`;
+  dashboard.appendChild(card);
+});
+</script>
 
 // DERNIERS TUTORIELS
 const latestList = document.getElementById("latestTutorials");
