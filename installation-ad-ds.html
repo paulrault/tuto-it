@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Installation du rôle AD DS</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+    .nav-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #2563eb;
+      color: white;
+      cursor: pointer;
+    }
+
+    .progress-container {
+      background-color: #1e293b;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 20px 0;
+      height: 20px;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      transition: width 0.5s ease, background-color 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>📚 Tuto IT</h2>
+  <a href="index.html">Accueil</a>
+  <a href="windows-server.html">Windows Server</a>
+  <a href="hyper-v.html">Hyper-V</a>
+</div>
+
+<div class="main">
+
+  <div class="marquee">
+    <span class="date" id="date"></span>
+    <p>🚀 Nouveautés : AD DS • Hyper-V • Windows Server</p>
+  </div>
+
+  <header>
+    <h1>Installation du rôle AD DS</h1>
+  </header>
+
+  <div class="container">
+
+    <h2>Guide étape par étape</h2>
+
+    <article id="step1">
+      <h3>1️⃣ Ouvrir le Gestionnaire de serveur</h3>
+      <p>Connectez-vous à votre serveur puis ouvrez le Gestionnaire de serveur.</p>
+    </article>
+
+    <article id="step2">
+      <h3>2️⃣ Ajouter un rôle</h3>
+      <p>Cliquez sur "Ajouter des rôles et fonctionnalités" puis sélectionnez votre serveur.</p>
+    </article>
+
+    <article id="step3">
+      <h3>3️⃣ Sélectionner AD DS</h3>
+      <p>Cochez "Services de domaine Active Directory" et validez les dépendances.</p>
+    </article>
+
+    <article id="step4">
+      <h3>4️⃣ Installer le rôle</h3>
+      <p>Lancez l'installation et attendez la fin du processus.</p>
+    </article>
+
+    <article id="step5">
+      <h3>5️⃣ Promouvoir en contrôleur de domaine</h3>
+      <p>Cliquez sur la notification et choisissez "Promouvoir ce serveur en contrôleur de domaine".</p>
+    </article>
+
+    <article id="step6">
+      <h3>6️⃣ Configurer le domaine</h3>
+      <p>Choisissez "Nouvelle forêt" et saisissez le nom de domaine (ex : entreprise.local).</p>
+    </article>
+
+    <article id="step7">
+      <h3>7️⃣ Définir le mot de passe DSRM</h3>
+      <p>Entrez un mot de passe pour le mode de restauration des services d'annuaire.</p>
+    </article>
+
+    <article id="step8">
+      <h3>8️⃣ Finaliser l'installation</h3>
+      <p>Validez les options, lancez l'installation et redémarrez le serveur.</p>
+    </article>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="nav-buttons">
+      <button id="prevBtn">⬅ Étape précédente</button>
+      <button id="nextBtn">Étape suivante ➡</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+// DATE
+const dateElement = document.getElementById("date");
+const today = new Date();
+const formattedDate = today.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
+dateElement.textContent = "📅 " + formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+
+// NAVIGATION
+const steps = ["step1","step2","step3","step4","step5","step6","step7","step8"];
+const colors = ["#38bdf8","#22c55e","#facc15","#f87171","#a78bfa","#fb7185","#34d399","#f97316"];
+let currentStep = 0;
+
+function showStep(index){
+  steps.forEach((id,i)=>{
+    document.getElementById(id).style.display = i===index?"block":"none";
+  });
+  currentStep=index;
+  updateBar();
+}
+
+function updateBar(){
+  const bar=document.getElementById("progressBar");
+  bar.style.width=((currentStep+1)/steps.length)*100+"%";
+  bar.style.backgroundColor=colors[currentStep];
+}
+
+document.getElementById("prevBtn").onclick=()=>{ if(currentStep>0) showStep(currentStep-1); }
+document.getElementById("nextBtn").onclick=()=>{ if(currentStep<steps.length-1) showStep(currentStep+1); }
+
+showStep(0);
+</script>
+
+</body>
+</html>
