@@ -54,23 +54,27 @@ header {
   background: #1d4ed8;
   padding-left: 160px;
   overflow: hidden;
+  height: 40px; /* ajuste selon ta taille */
 }
 
-.marquee p {
-  animation: scroll 15s linear infinite;
+.marquee .date {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;  /* priorité au-dessus du texte */
+  font-weight: bold;
+}
+
+.marquee-text {
   white-space: nowrap;
+  display: inline-block;
+  animation: scroll 15s linear infinite;
 }
 
 @keyframes scroll {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
-}
-
-.date {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 /* CONTENU */
