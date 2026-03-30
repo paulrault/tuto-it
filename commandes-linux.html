@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Commandes de base Linux</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .cmd {
+      background: #020617;
+      padding: 10px;
+      border-radius: 8px;
+      margin: 10px 0;
+      font-family: monospace;
+      color: #38bdf8;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>📚 Tuto IT</h2>
+  <a href="index.html">Accueil</a>
+  <a href="windows-server.html">Windows Server</a>
+  <a href="hyper-v.html">Hyper-V</a>
+  <a href="linux.html">Linux</a>
+  <a href="about.html">À propos</a>
+</div>
+
+<div class="main">
+
+  <div class="marquee">
+    <span class="date" id="date"></span>
+    <div class="marquee-text">
+      🚀 Nouveautés : Commandes Linux • Debian CLI • AD DS • Hyper-V
+    </div>
+  </div>
+
+  <header>
+    <h1>📖 Commandes de base Linux</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- NAVIGATION -->
+    <h2>Sommaire</h2>
+    <ul>
+      <li><a href="#fichiers">📁 Gestion des fichiers</a></li>
+      <li><a href="#navigation">📂 Navigation</a></li>
+      <li><a href="#systeme">⚙️ Système</a></li>
+      <li><a href="#reseau">🌐 Réseau</a></li>
+    </ul>
+
+    <!-- FICHIERS -->
+    <div class="section" id="fichiers">
+      <h2>📁 Gestion des fichiers</h2>
+
+      <p><strong>Créer un fichier :</strong></p>
+      <div class="cmd">touch fichier.txt</div>
+
+      <p><strong>Copier :</strong></p>
+      <div class="cmd">cp fichier.txt /dossier/</div>
+
+      <p><strong>Déplacer :</strong></p>
+      <div class="cmd">mv fichier.txt /dossier/</div>
+
+      <p><strong>Supprimer :</strong></p>
+      <div class="cmd">rm fichier.txt</div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="section" id="navigation">
+      <h2>📂 Navigation</h2>
+
+      <p><strong>Afficher le dossier courant :</strong></p>
+      <div class="cmd">pwd</div>
+
+      <p><strong>Lister les fichiers :</strong></p>
+      <div class="cmd">ls -l</div>
+
+      <p><strong>Changer de dossier :</strong></p>
+      <div class="cmd">cd /chemin</div>
+    </div>
+
+    <!-- SYSTEME -->
+    <div class="section" id="systeme">
+      <h2>⚙️ Système</h2>
+
+      <p><strong>Mettre à jour :</strong></p>
+      <div class="cmd">sudo apt update && sudo apt upgrade</div>
+
+      <p><strong>Voir les processus :</strong></p>
+      <div class="cmd">top</div>
+
+      <p><strong>Redémarrer :</strong></p>
+      <div class="cmd">reboot</div>
+    </div>
+
+    <!-- RESEAU -->
+    <div class="section" id="reseau">
+      <h2>🌐 Réseau</h2>
+
+      <p><strong>Tester une connexion :</strong></p>
+      <div class="cmd">ping google.com</div>
+
+      <p><strong>Afficher IP :</strong></p>
+      <div class="cmd">ip a</div>
+
+      <p><strong>Afficher ports :</strong></p>
+      <div class="cmd">netstat -tuln</div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+// DATE
+const dateElement = document.getElementById("date");
+const today = new Date();
+dateElement.textContent = "📅 " + today.toLocaleDateString('fr-FR', {
+  day:'numeric', month:'long', year:'numeric'
+});
+</script>
+
+</body>
+</html>
